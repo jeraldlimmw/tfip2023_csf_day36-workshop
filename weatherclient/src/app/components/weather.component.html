@@ -1,0 +1,23 @@
+<h2>{{ city | titlecase }}</h2>
+<div *ngIf="weather$ | async as list; else processing" style="font-size: 1.5em;">
+    <table>
+        <tr *ngFor="let w of list">
+            <td>
+                <img src="https://openweathermap.org/img/wn/{{ w.icon }}@2x.png" alt="">
+            </td>
+            <td>
+                {{ w.main }} {{ w.description }}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <!-- back word and not button -->
+                <a [routerLink]="['/']">Back</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<ng-template #processing>
+    <code>Still processing...</code>
+</ng-template>

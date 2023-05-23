@@ -1,0 +1,20 @@
+<form [formGroup] = 'form' (submit)="process()">
+  <tr>
+    <td>City: </td>
+    <td><input type="text" size="30" formControlName="city"></td>
+  </tr>
+  <tr>
+    <td>Units: </td>
+    <td>
+      <input type="radio" value="standard" formControlName="units">Standard
+      <input type="radio" value="metric" formControlName="units">Metric
+      <input type="radio" value="imperial" formControlName="units">Imperial
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <button type="submit" [disabled]="form.invalid">Check Weather</button>
+    </td>
+  </tr>
+</form>
